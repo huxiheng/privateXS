@@ -139,10 +139,10 @@
     self.textFieldCheckCode.delegate = self;
     [viewPassword addSubview:self.textFieldCheckCode];
     
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"isFirstLogInto"] boolValue]==0 ) {
-        self.textFieldReportNum.text = [LoginUtil loginUserName];
-        self.textFieldCheckCode.text = [LoginUtil loginPassword];
-    }
+//    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"isFirstLogInto"] boolValue]==0 ) {
+//        self.textFieldReportNum.text = [LoginUtil loginUserName];
+//        self.textFieldCheckCode.text = [LoginUtil loginPassword];
+//    }
     
     self.buttonSure = [UIButton buttonWithType:UIButtonTypeCustom];
     self.buttonSure.frame = CGRectMake((DeviceWidth-280)/2, kscaleDeviceLength(480), 280, kscaleDeviceLength(45));
