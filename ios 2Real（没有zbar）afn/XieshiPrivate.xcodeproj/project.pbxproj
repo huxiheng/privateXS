@@ -455,7 +455,6 @@
 		D20F3D881D3C6CA200636ADE /* UIImage+HY.m in Sources */ = {isa = PBXBuildFile; fileRef = D20F3D851D3C6CA200636ADE /* UIImage+HY.m */; };
 		D20F3D891D3C6CA200636ADE /* NSObject+HY.m in Sources */ = {isa = PBXBuildFile; fileRef = D20F3D871D3C6CA200636ADE /* NSObject+HY.m */; };
 		D20F3D981D3C6CF600636ADE /* NSString+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = D20F3D8D1D3C6CF600636ADE /* NSString+Common.m */; };
-		D20F3D991D3C6CF600636ADE /* ScanningView.m in Sources */ = {isa = PBXBuildFile; fileRef = D20F3D8F1D3C6CF600636ADE /* ScanningView.m */; };
 		D20F3D9A1D3C6CF600636ADE /* Toast+UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = D20F3D911D3C6CF600636ADE /* Toast+UIView.m */; };
 		D20F3D9B1D3C6CF600636ADE /* ToastLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D20F3D931D3C6CF600636ADE /* ToastLabel.m */; };
 		D20F3D9C1D3C6CF600636ADE /* UIColor+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = D20F3D951D3C6CF600636ADE /* UIColor+Common.m */; };
@@ -548,6 +547,7 @@
 		D217AF1B1DAF4F2900676221 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D217AF1A1DAF4F2900676221 /* libsqlite3.0.tbd */; };
 		D217AF1D1DAF4F4A00676221 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D217AF1C1DAF4F4A00676221 /* CoreTelephony.framework */; };
 		D217AF201DAF554A00676221 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D217AF1F1DAF554A00676221 /* mapapi.bundle */; };
+		D217F04B1DD9536000918A3D /* ScanningView.m in Sources */ = {isa = PBXBuildFile; fileRef = D217F04A1DD9536000918A3D /* ScanningView.m */; };
 		D21C4DD91DAB61DD00215597 /* MatchIOS10LabelFont.m in Sources */ = {isa = PBXBuildFile; fileRef = D21C4DD81DAB61DD00215597 /* MatchIOS10LabelFont.m */; };
 		D21D8A401DB6179F0055F9A8 /* HYAdapterIPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D21D8A3E1DB6179F0055F9A8 /* HYAdapterIPManager.m */; };
 		D220831F1D7D65A300353233 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D220831C1D7D65A300353233 /* logo.png */; };
@@ -1342,8 +1342,6 @@
 		D20F3D871D3C6CA200636ADE /* NSObject+HY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HY.m"; sourceTree = "<group>"; };
 		D20F3D8C1D3C6CF600636ADE /* NSString+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Common.h"; sourceTree = "<group>"; };
 		D20F3D8D1D3C6CF600636ADE /* NSString+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Common.m"; sourceTree = "<group>"; };
-		D20F3D8E1D3C6CF600636ADE /* ScanningView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScanningView.h; path = ../../../../Helpers/ScanningView.h; sourceTree = "<group>"; };
-		D20F3D8F1D3C6CF600636ADE /* ScanningView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScanningView.m; path = ../../../../Helpers/ScanningView.m; sourceTree = "<group>"; };
 		D20F3D901D3C6CF600636ADE /* Toast+UIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Toast+UIView.h"; sourceTree = "<group>"; };
 		D20F3D911D3C6CF600636ADE /* Toast+UIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Toast+UIView.m"; sourceTree = "<group>"; };
 		D20F3D921D3C6CF600636ADE /* ToastLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToastLabel.h; sourceTree = "<group>"; };
@@ -1468,6 +1466,8 @@
 		D217AF1C1DAF4F4A00676221 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		D217AF1E1DAF521100676221 /* BMKVersionThird.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMKVersionThird.h; sourceTree = "<group>"; };
 		D217AF1F1DAF554A00676221 /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = mapapi.bundle; path = BaiduMapAPI_Map.framework/Headers/mapapi.bundle; sourceTree = "<group>"; };
+		D217F0491DD9536000918A3D /* ScanningView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanningView.h; sourceTree = "<group>"; };
+		D217F04A1DD9536000918A3D /* ScanningView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanningView.m; sourceTree = "<group>"; };
 		D21C4DD71DAB61DD00215597 /* MatchIOS10LabelFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchIOS10LabelFont.h; sourceTree = "<group>"; };
 		D21C4DD81DAB61DD00215597 /* MatchIOS10LabelFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchIOS10LabelFont.m; sourceTree = "<group>"; };
 		D21D8A3D1DB6179F0055F9A8 /* HYAdapterIPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYAdapterIPManager.h; sourceTree = "<group>"; };
@@ -3239,10 +3239,10 @@
 			children = (
 				D227B4EE1DBF17B300115A64 /* XSScanningVC.h */,
 				D227B4EF1DBF17B300115A64 /* XSScanningVC.m */,
+				D217F0491DD9536000918A3D /* ScanningView.h */,
+				D217F04A1DD9536000918A3D /* ScanningView.m */,
 				D227B4F11DBF187F00115A64 /* LoadCapturePreView.h */,
 				D227B4F21DBF187F00115A64 /* LoadCapturePreView.m */,
-				D20F3D8E1D3C6CF600636ADE /* ScanningView.h */,
-				D20F3D8F1D3C6CF600636ADE /* ScanningView.m */,
 				D227B4F61DBF427E00115A64 /* QRCodeViewController.h */,
 				D227B4F71DBF427E00115A64 /* QRCodeViewController.m */,
 			);
@@ -4082,7 +4082,6 @@
 				D204CD0F1D44A03D0099470B /* LSFormTextFieldCell.m in Sources */,
 				D210B8251D90E426008DF4D0 /* titleXHLabel.m in Sources */,
 				D200EA5C1D584CED002B856E /* TodayViewController.m in Sources */,
-				D20F3D991D3C6CF600636ADE /* ScanningView.m in Sources */,
 				8B22D94918FBC597003866BE /* LSCacheManager.m in Sources */,
 				D209D5C31D8FBBDD0079CA9E /* XSCollectionHeaderFooterView.m in Sources */,
 				D210B83D1D915973008DF4D0 /* PZViewController.m in Sources */,
@@ -4277,6 +4276,7 @@
 				D200EABF1D596538002B856E /* VASampleListViewController.m in Sources */,
 				F7A86E4117D39E92003411A2 /* LSPickerActionSheet.m in Sources */,
 				8B2268E619D842F3007941F8 /* LSRefreashAndLoadMoreViewController.m in Sources */,
+				D217F04B1DD9536000918A3D /* ScanningView.m in Sources */,
 				F7A86E4217D39E92003411A2 /* LSSideViewController.m in Sources */,
 				D24284931D4F443800A7B8F8 /* LSFormTextViewSearchNewCell.m in Sources */,
 				D20F3E371D3CDB1400636ADE /* UIActionSheet+MKBlockAdditions.m in Sources */,

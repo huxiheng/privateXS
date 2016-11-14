@@ -41,11 +41,12 @@
     self.imageViewHead.image = ((XSCellModel *)(self.model)).images;
     self.labelTitle.text = ((XSCellModel *)(self.model)).title;
     self.labelContent.text = ((XSCellModel *)(self.model)).content;
-    if ([((XSCellModel *)(self.model)).content isEqualToString:@""]) {
+    if ([((XSCellModel *)(self.model)).content isEqualToString:@""]||((XSCellModel *)(self.model)).content==nil) {
         self.labelContent.hidden = YES;
         self.labelTitle.frame = CGRectMake(50, 0, DeviceWidth-50-17-10-10, 49.5);
     }else{
         self.labelContent.hidden = NO;
+        self.labelTitle.frame = CGRectMake(50, 0, 100, 49.5);
     }
 }
 

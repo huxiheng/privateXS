@@ -65,6 +65,8 @@
     [self.table registerClass:[XSSettingViewCell class] forCellReuseIdentifier:[XSSettingViewCell cellIdentifier]];
     
     self.actionSheet = [[XSActionSheet alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, DeviceHeight)];
+    
+    
 }
 
 - (void)setdataArray{
@@ -117,7 +119,11 @@
         
     }
     if (indexPath.row == 3) {
-        NSString*userNum=[[XSConnectPool shareInstance] getUserBindPhoneNumber:@""];
+        
+        NSString*userNum=[self getUserBuindingPhoneNumber];
+        if ([userNum isEqualToString:@""]||userNum==nil) {
+            userNum = [[XSConnectPool shareInstance] getUserBindPhoneNumber:@""];
+        }
 
         XSRemoveCountBindView *unbindView = [[XSRemoveCountBindView alloc] initWithIphoneNum:userNum countName:[LoginUtil loginUserName]];
         dpBlockSelf;
@@ -218,5 +224,21 @@
 
 
 }
+
+#pragma marks ----获取用户绑定的手机号----
+-(NSString *)getUserBuindingPhoneNumber{
+    NSString *path = [NSString returnBuindingIphoneNumber];
+        NSArray *arrayUserImages = [NSArray arrayWithContentsOfFile:path];
+        for (int i=0; i<arrayUserImages.count; i++) {
+            NSDictionary *dic = arrayUserImages[i];
+            if ([[LoginUtil loginUserName] isEqualToString:dic[@"userName"]]) {
+                
+                return dic[@"numberdata"];
+            }
+        }
+    return nil;
+}
+
+
 
 @end

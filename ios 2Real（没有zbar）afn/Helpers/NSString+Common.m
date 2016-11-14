@@ -241,4 +241,11 @@
     NSString *plistPath = [doc stringByAppendingPathComponent:@"dataImage.plist"];
     return plistPath;
 }
++(NSString*)returnBuindingIphoneNumber{
+    NSString *doc =kSaveIphoneNumberPath;
+    [[NSFileManager defaultManager] createDirectoryAtPath:doc withIntermediateDirectories:YES attributes:nil error:nil];
+    NSString *plistPath = [doc stringByAppendingPathComponent:@"dataNumber.plist"];
+    return plistPath;
+}
+
 @end

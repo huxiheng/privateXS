@@ -8,7 +8,9 @@
 
 #import "XSViewController.h"
 
-@interface LogInBindIphoneViewController : XSViewController
+@interface LogInBindIphoneViewController : XSViewController{
+    NSMutableArray *arrayUserBuindNumber;//用来保存用户绑定的手机号
+}
 @property(nonatomic,retain) NSString *userName;
 @property(nonatomic,retain) NSString *password;
 @property(nonatomic,retain) NSString *deviceId;

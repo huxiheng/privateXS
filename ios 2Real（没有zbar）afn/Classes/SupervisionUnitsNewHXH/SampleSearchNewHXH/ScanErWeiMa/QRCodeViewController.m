@@ -38,20 +38,20 @@
 {
     if (self.upOrdown == NO) {
         self.num ++;
-        self.scanningView.lineImage.frame = CGRectMake(kscaleIphone5DeviceLength(50), kscaleIphone5DeviceLength(90) +2*self.num, DeviceWidth- kscaleIphone5DeviceLength(100), 2);
+        self.scanningView.lineImage.frame = CGRectMake((DeviceWidth-225)/2, kscaleIphone5DeviceLength(90) +2*self.num, 225, 2);
         if (DeviceHeight<500) {
-            if (2*self.num >=198 ) {
+            if (2*self.num >=223 ) {
                 self.upOrdown = YES;
             }
         }else{
-            if (2*self.num >=(DeviceWidth- kscaleIphone5DeviceLength(100)) ) {
+            if (2*self.num >=(223) ) {
                 self.upOrdown = YES;
             }
         }
     }
     else {
         self.num --;
-        self.scanningView.lineImage.frame = CGRectMake(kscaleIphone5DeviceLength(50), kscaleIphone5DeviceLength(90) +2*self.num, DeviceWidth- kscaleIphone5DeviceLength(100), 2);
+        self.scanningView.lineImage.frame = CGRectMake((DeviceWidth-225)/2, kscaleIphone5DeviceLength(90) +2*self.num, 225, 2);
         if (self.num <= 0) {
             self.upOrdown = NO;
         }

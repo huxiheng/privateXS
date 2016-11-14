@@ -39,6 +39,7 @@
     //#else
     //    g_port = 443;
     //#endif
+    
 }
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

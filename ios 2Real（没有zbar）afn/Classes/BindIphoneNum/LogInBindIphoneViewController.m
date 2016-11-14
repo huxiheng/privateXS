@@ -45,6 +45,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    arrayUserBuindNumber = [[NSMutableArray alloc] init];
     self.view.backgroundColor = [UIColor colorWithRed:64.0/255.0 green:170.0/255.0 blue:216.0/255.0 alpha:1.0];
     
     self.checkPhoneView = [[BuildPhoneNumView alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, DeviceHeight-64)];
@@ -97,7 +98,7 @@
         [LSDialog showMessage:@"请正确输入验证码"];
     }
     
-    
+    dpBlockSelf;
     NSDictionary *params = @{
                              @"Token"    :_token,
                              @"CheckCode":strCode
@@ -113,7 +114,8 @@
         [LoginUtil setnumberPhone:_numberPhone];
         [[NSUserDefaults standardUserDefaults] setValue:_numberPhone forKey:@"IphoneNumberForCode"];
         [[NSUserDefaults standardUserDefaults] setValue:data[@"IsFirstLogin"] forKey:@"isFirstLogInto"];
-        NSString*userNumKeyChain= [[XSConnectPool shareInstance] getUserBindPhoneNumber:_numberPhone];
+         [[XSConnectPool shareInstance] getUserBindPhoneNumber:_numberPhone];
+        [_self saveBuindingNumberWithUser:_numberPhone];
 
         NSLog(@"%@", [LoginUtil loginUserName]);
         NSLog(@"%@", [LoginUtil loginPassword]);
@@ -149,7 +151,7 @@
     self.numberPhone = str;
     [[NSUserDefaults standardUserDefaults] setValue:str forKey:@"IphoneNumberForCode"];
     [LoginUtil setnumberPhone:str];
-    [[XSConnectPool shareInstance] getUserBindPhoneNumber:str];
+//    [[XSConnectPool shareInstance] getUserBindPhoneNumber:str];
     
     AFNetConnection *connection = [[USTAFNet sharedInstance]connectionWithApiName:AFNETMETHOD_UST_BindStart params:params];
     [connection setOnSuccess:^(id result) {
@@ -180,6 +182,28 @@
     }];
 //    [SVProgressHUD show];
     [connection startAsynchronous];
+}
+
+#pragma mark ------保存绑定的手机号到本地---------
+-(void)saveBuindingNumberWithUser:(NSString*)dataNumber{
+    NSString *plistPath = [NSString returnBuindingIphoneNumber];
+    NSLog(@"%@",plistPath);
+    
+    for (int i=0; i<arrayUserBuindNumber.count; i++) {
+        NSDictionary *dicChild = [arrayUserBuindNumber objectAtIndex:i];
+        NSString* dicUserName = dicChild[@"userName"];
+        if ([dicUserName isEqualToString:[LoginUtil loginUserName]]) {
+            NSDictionary *dicUser = @{@"numberdata":dataNumber,@"userName":[LoginUtil loginUserName]};
+            [arrayUserBuindNumber replaceObjectAtIndex:i withObject:dicUser];
+            [arrayUserBuindNumber writeToFile:plistPath atomically:YES];
+            return;
+        }
+    }
+    
+    NSDictionary *dicUser =  @{@"numberdata":dataNumber,@"userName":[LoginUtil loginUserName]};
+    [arrayUserBuindNumber addObject:dicUser];
+    [arrayUserBuindNumber writeToFile:plistPath atomically:YES];
+    
 }
 
 @end

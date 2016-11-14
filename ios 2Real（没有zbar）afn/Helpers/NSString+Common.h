@@ -44,4 +44,8 @@
  获取用户头像路径
  */
 +(NSString*)returnImagesUser;
+/*
+获取用户绑定手机号的用户
+ */
++(NSString*)returnBuindingIphoneNumber;
 @end
