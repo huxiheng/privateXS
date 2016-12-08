@@ -36,6 +36,8 @@
         VASampleListViewController *controller = [[VASampleListViewController alloc]init];
         [self.navigationController pushViewController:controller animated:YES];
         controller.list = ARRAY_EMPTY_IF_NOT( _dataDic[@"SampleInfo"] );
+        NSLog(@"%li",controller.list.count);
+        
     };
     self.table.tableHeaderView = headerView;
     

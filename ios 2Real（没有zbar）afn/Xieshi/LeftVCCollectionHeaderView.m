@@ -26,7 +26,7 @@
     tap.cancelsTouchesInView = NO;
     [self.imageviewHeader addGestureRecognizer:tap];
     
-    self.labelTitle= [[UILabel alloc] initWithFrame:CGRectMake(0, kscaleDeviceWidth(76)+kscaleDeviceWidth(95)+kscaleDeviceWidth(15), DeviceWidth, kscaleDeviceWidth(17))];
+    self.labelTitle= [[UILabel alloc] initWithFrame:CGRectMake(0, kscaleDeviceWidth(76)+kscaleDeviceWidth(95)+kscaleDeviceWidth(15), DeviceWidth, kscaleDeviceWidth(22))];
     self.labelTitle.textColor = [UIColor whiteColor];
     self.labelTitle.textAlignment = NSTextAlignmentCenter;
     self.labelTitle.font = themeFont17;
@@ -45,7 +45,8 @@
         NSArray *arrayUserImages = [NSArray arrayWithContentsOfFile:((NSString*)self.model)];
         for (int i=0; i<arrayUserImages.count; i++) {
             NSDictionary *dic = arrayUserImages[i];
-            if ([[LoginUtil loginUserName] isEqualToString:dic[@"userName"]]) {
+            BOOL result = [dic[@"userName"] caseInsensitiveCompare:[LoginUtil loginUserName]] == NSOrderedSame;
+            if (result) {
                 self.imageviewHeader.image = [UIImage imageWithData:dic[@"imagedata"]];
                 return;
             }

@@ -17,14 +17,13 @@
 }
 @property(nonatomic,retain) NSArray *items;
 @property(nonatomic,retain) NSArray *kinds;
-@property(nonatomic,assign) BOOL dataRequestSuccess;
 
 @end
 
 @implementation VerifyFilterViewController
 - (void)setDatawithNavTitle {
     if (_type==FilterViewControllerTypeVerify) {
-        self.titleForNav = @"纪录审核查询";
+        self.titleForNav = @"记录审核查询";
     }else{
        self.titleForNav = @"报告批准查询";
     }
@@ -75,17 +74,21 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _dataRequestSuccess = false;
+//    _dataRequestSuccess = false;
 
     self.delegate = self;
 
     
 }
 - (void)viewWillAppear:(BOOL)animated{
-    if (_dataRequestSuccess == false) {
-        [self dataRequest];
-       
-    }
+    
+     [self dataRequest];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    _kindCell.labelContent.text = @"";
+    _itemCell.labelContent.text = @"";
+    [super viewWillDisappear:animated];
 }
 
 //- (void)rightBarButtonDidPress:(UIBarButtonItem *)sender{
@@ -107,7 +110,6 @@
                              };
     AFNetConnection *connection = [[USTAFNet sharedInstance]connectionWithApiName:AFNETMETHOD_UST_AuditedExamedKind params:params];
     [connection setOnSuccess:^(id result) {
-        _dataRequestSuccess = true;
         NSMutableDictionary *kindMapper = [NSMutableDictionary dictionary];
         NSArray *data = result[kAFNETConnectionStandartDataKey];
         [data enumerateObjectsUsingBlock:^(NSDictionary* obj, NSUInteger idx, BOOL *stop) {
@@ -206,6 +208,7 @@
     
     if (_onComplete) {
         _onComplete(data[@"kind"],data[@"item"],[data[@"isComplete"] boolValue], _itemCell.selectMapper[data[@"item"]]);
+        
     }
 }
 @end

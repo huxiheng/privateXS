@@ -15,5 +15,6 @@
 @property(nonatomic,retain) NSString *password;
 @property(nonatomic,retain) NSString *deviceId;
 @property(nonatomic, retain) NSString *numberPhone;
+@property(nonatomic,copy)NSString  *userPowerString;
 
 @end

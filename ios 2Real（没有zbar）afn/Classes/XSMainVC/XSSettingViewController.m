@@ -120,9 +120,15 @@
     }
     if (indexPath.row == 3) {
         
-        NSString*userNum=[self getUserBuindingPhoneNumber];
+        NSString*userNum=[[NSUserDefaults standardUserDefaults] valueForKey:@"getPhoneNumber"];
         if ([userNum isEqualToString:@""]||userNum==nil) {
-            userNum = [[XSConnectPool shareInstance] getUserBindPhoneNumber:@""];
+            NSString *userNumberFromPlist = [self getUserBuindingPhoneNumber];
+            if ([userNumberFromPlist isEqualToString:@""]||userNumberFromPlist==nil) {
+                userNum = @"请重新登录，在操作此功能";
+            }else{
+                userNum =userNumberFromPlist;
+            }
+            
         }
 
         XSRemoveCountBindView *unbindView = [[XSRemoveCountBindView alloc] initWithIphoneNum:userNum countName:[LoginUtil loginUserName]];
@@ -214,6 +220,7 @@
         
         APP_DELEGATE.rootNavigationController = [[XSNavigationViewController alloc] initWithRootViewController:loginViewController];
         APP_DELEGATE.window.rootViewController = APP_DELEGATE.rootNavigationController;
+        [[NSUserDefaults standardUserDefaults] setValue:@"1" forKey:@"isFirstLogInto"];
     }];
     [connection setOnFailed:^(NSError *error) {
         NSString *errorDescription = [error localizedDescription];

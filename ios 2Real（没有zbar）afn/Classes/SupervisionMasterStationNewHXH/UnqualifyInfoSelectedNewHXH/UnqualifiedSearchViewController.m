@@ -34,8 +34,6 @@
 
 @property(nonatomic,retain) NSMutableDictionary *queryData;
 
-@property(nonatomic,assign) BOOL dataRequestSuccess;
-
 @property (nonatomic, strong)NSMutableDictionary *dickind;
 
 @end
@@ -93,9 +91,9 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     
-    if (_dataRequestSuccess == false) {
+    
         [self dataRequestJianCeKind];
-    }
+    
 }
 
 - (void)viewDidLoad {
@@ -166,7 +164,7 @@
                              };
      AFNetConnection *connection = [[CommonAFNet sharedInstance]connectionWithApiName:AFNETMETHOD_ItemKindSource params:params];
     [connection setOnSuccess:^(id result) {
-        _dataRequestSuccess = true;
+        
         NSMutableDictionary *kindMapper = [NSMutableDictionary dictionary];
         NSArray *data = result[kAFNETConnectionStandartDataKey];
         [data enumerateObjectsUsingBlock:^(NSDictionary* obj, NSUInteger idx, BOOL *stop) {

@@ -162,7 +162,7 @@ NSString *PageControllerErrorDomain = @"PageControllerErrorDomain";
                     
                     if (_list.count==0) {
                         _self.onSupplementRefreshFailedBlock();
-                        [SVProgressHUD showImage:nil status:@"服务器没有返回数据呦！" maskType:SVProgressHUDMaskTypeNone];
+                        [SVProgressHUD showImage:nil status:@"服务器没有返回数据！" maskType:SVProgressHUDMaskTypeNone];
                     }else{
                         [SVProgressHUD dismiss];
                     }

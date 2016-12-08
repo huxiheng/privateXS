@@ -43,7 +43,7 @@
     self.labelTitle.font = themeFont9;
     self.labelTitle.textAlignment = NSTextAlignmentCenter;
     self.labelTitle.textColor = [UIColor whiteColor];
-    self.labelTitle.text = @"将二维码对入取景框，即可自动扫描";
+    self.labelTitle.text = @"将条码对入取景框，即可自动扫描";
     [self.downView addSubview:self.labelTitle];
     
     self.imageSaoBJ = [[UIImageView alloc] initWithFrame:CGRectMake((DeviceWidth-225)/2, kscaleIphone5DeviceLength(90), 225, 225)];

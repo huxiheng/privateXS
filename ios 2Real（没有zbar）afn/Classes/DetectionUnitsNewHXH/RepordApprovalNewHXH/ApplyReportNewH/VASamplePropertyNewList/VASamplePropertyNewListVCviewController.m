@@ -47,6 +47,10 @@
     
     self.table.tableHeaderView = viewHeader;
     
+    if (self.data == nil) {
+        [SVProgressHUD showImage:nil status:@"服务器没有返回参数相关的数据！" maskType:3];
+    }
+    
 }
 
 #pragma mark ----UITableViewDelegate----

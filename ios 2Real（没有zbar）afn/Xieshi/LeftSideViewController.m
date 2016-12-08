@@ -253,7 +253,8 @@
     for (int i=0; i<arrayimagesUser.count; i++) {
         NSDictionary *dicChild = [arrayimagesUser objectAtIndex:i];
         NSString* dicUserName = dicChild[@"userName"];
-        if ([dicUserName isEqualToString:[LoginUtil loginUserName]]) {
+        BOOL result = [dicUserName caseInsensitiveCompare:[LoginUtil loginUserName]] == NSOrderedSame;
+        if (result) {
             NSDictionary *dicUser = @{@"imagedata":dataImage,@"userName":[LoginUtil loginUserName]};
             [arrayimagesUser replaceObjectAtIndex:i withObject:dicUser];
             [arrayimagesUser writeToFile:plistPath atomically:YES];

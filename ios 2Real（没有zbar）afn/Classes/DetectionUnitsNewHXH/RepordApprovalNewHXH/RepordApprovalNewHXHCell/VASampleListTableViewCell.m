@@ -48,7 +48,7 @@
     _data = data;
     _sampleIdLabel .text = data[@"Sample_Id"];
 //    _sampleNameLabel .text = data[@"SampleName"];
-    _sampleNameLabel .text = [NSString stringWithFormat:@"工程名称：%@",data[@"SampleName"]];
+    _sampleNameLabel .text = [NSString stringWithFormat:@"样品名称：%@",data[@"SampleName"]];
     NSRange rangeRange = [_sampleNameLabel.text rangeOfString:data[@"SampleName"]];
     [_sampleNameLabel setAttributeText:_sampleNameLabel.text nsrange:rangeRange];
     CGFloat heightName = [NSString calculateTextHeight:kscaleIphone5DeviceLength(269) Content:_sampleNameLabel.text font:themeFont17];

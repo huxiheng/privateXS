@@ -26,6 +26,9 @@
     [super viewDidLoad];
 //    self.title=@"样品列表";
     [_tableView registerNib:[UINib nibWithNibName:@"VASampleListTableViewCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
+    if (self.list.count == 0 ) {
+        [SVProgressHUD showImage:nil status:@"服务器没有返回样品相关的数据！" maskType:3];
+    }
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];

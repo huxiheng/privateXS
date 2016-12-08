@@ -7,16 +7,13 @@
 //
 
 #import "XSViewController.h"
-#import <AVFoundation/AVFoundation.h>
+#import "ZBarSDK.h"
 
-@interface QRCodeViewController : XSViewController<AVCaptureMetadataOutputObjectsDelegate,AVCaptureVideoDataOutputSampleBufferDelegate>{
+
+@interface QRCodeViewController : XSViewController<ZBarReaderViewDelegate>{
     void (^_onRecognized)(NSString *data);
 }
-@property (nonatomic, strong)AVCaptureDevice * device;
-@property (nonatomic, strong)AVCaptureDeviceInput * input;
-@property (nonatomic, strong)AVCaptureMetadataOutput * output;
-@property (nonatomic, strong)AVCaptureSession * session;
-@property (nonatomic, strong)AVCaptureVideoPreviewLayer * preview;
+@property (strong, nonatomic)  ZBarReaderView *reader;
 
 @property (nonatomic, copy)NSString *titleBackBtn;
 

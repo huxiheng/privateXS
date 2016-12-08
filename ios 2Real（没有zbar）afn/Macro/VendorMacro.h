@@ -69,6 +69,7 @@
 //#import "UINavigationItem+Margin.h"
 #import "NSString+Common.h"
 #import "UIColor+Common.h"
+#import "NSError+Common.h"
 #import "Toast+UIView.h"
 //#import "UIImageView+Circle.h"
 //#import "UIView+Circle.h"

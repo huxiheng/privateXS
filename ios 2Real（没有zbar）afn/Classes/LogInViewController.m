@@ -227,6 +227,8 @@
         
         NSDictionary *data = result[kAFNETConnectionStandartDataKey];
         [[NSUserDefaults standardUserDefaults] setValue:data[@"IsFirstLogin"] forKey:@"isFirstLogInto"];
+        [[NSUserDefaults standardUserDefaults] setValue:data[@"PhoneNumber"] forKey:@"getPhoneNumber"];
+        
         if([data[@"IsFirstLogin"] boolValue]
 #ifdef LS_DEBUG
            && (0)
@@ -238,18 +240,20 @@
             controller.userName = userName;
             controller.password = password;
             controller.deviceId = deviceId;
+            controller.userPowerString = data[@"UserPower"];
             [self.navigationController pushViewController:controller animated:YES];
         }else{
             [SVProgressHUD dismiss];
             [LoginUtil setLoginUserName:userName];
             [LoginUtil setLoginPassword:password];
             [LoginUtil setToken:data[@"Token"]];
+            
 #ifdef LS_DEBUG
             //            GLY
             //            [LoginUtil setToken:@"9d5b0870-d824-47a4-ba96-d129ca77789c"];
             
             //t9990001
-            [LoginUtil setToken:@"D2416D3F-51BA-447C-9BBE-347BA401472D"];
+//            [LoginUtil setToken:@"D2416D3F-51BA-447C-9BBE-347BA401472D"];
             
             //J20623
             //            [LoginUtil setToken:@"e9383cfe-091a-47cc-83da-e54fec9aed7f"];
@@ -278,9 +282,10 @@
             controller.userName = userName;
             controller.password = password;
             controller.deviceId = deviceId;
+            
             [self.navigationController pushViewController:controller animated:YES];
         }else{
-            NSString *errorDescription = [error localizedDescription];
+            NSString *errorDescription = [NSError getErrorInfoResponseUTF8String:error];
             [SVProgressHUD dismissWithError:STRING_FORMAT(@"%@",errorDescription) afterDelay:2.5f];
         }
     }];

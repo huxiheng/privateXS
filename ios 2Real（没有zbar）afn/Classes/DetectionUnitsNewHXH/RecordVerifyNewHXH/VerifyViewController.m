@@ -139,6 +139,7 @@ static NSString *VerifyViewControllerCompleteCellIdentifier = @"CompleteCell";
         [self.navigationController popViewControllerAnimated:YES];
         [self refreshNoMerge];
         [self refreshtableViewFrame];
+        [self.tableView reloadData];
     }];
 }
 

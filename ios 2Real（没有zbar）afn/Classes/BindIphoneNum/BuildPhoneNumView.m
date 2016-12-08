@@ -132,31 +132,31 @@
         return;
     }
     
-     self.btnCode.userInteractionEnabled = NO;
-    [UIAlertView alertViewWithTitle:@"" message:@"验证码已发送" cancelButtonTitle:nil otherButtonTitles:@[@"OK"] onDismiss:^(int buttonIndex) {
-        [self.textFieldCode becomeFirstResponder];
-    } onCancel:^{
-        
-    }];
+//     self.btnCode.userInteractionEnabled = NO;
+//    [UIAlertView alertViewWithTitle:@"" message:@"验证码已发送" cancelButtonTitle:nil otherButtonTitles:@[@"OK"] onDismiss:^(int buttonIndex) {
+//        [self.textFieldCode becomeFirstResponder];
+//    } onCancel:^{
+//        
+//    }];
     
-    //获取验证码倒计时
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        for (int i= 59; i > -1; i--) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.btnCode setTitle:[NSString stringWithFormat:@"等待%d秒",i] forState:UIControlStateNormal];
-                self.btnCode.userInteractionEnabled = NO;
-            });
-            
-            if (i == 0) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.btnCode setTitle:@"重新获取" forState:UIControlStateNormal];
-                    self.btnCode.userInteractionEnabled = YES;
-                });
-            }
-            sleep(1);
-            
-        }
-    });
+//    //获取验证码倒计时
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        for (int i= 59; i > -1; i--) {
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                [self.btnCode setTitle:[NSString stringWithFormat:@"等待%d秒",i] forState:UIControlStateNormal];
+//                self.btnCode.userInteractionEnabled = NO;
+//            });
+//            
+//            if (i == 0) {
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    [self.btnCode setTitle:@"重新获取" forState:UIControlStateNormal];
+//                    self.btnCode.userInteractionEnabled = YES;
+//                });
+//            }
+//            sleep(1);
+//            
+//        }
+//    });
     
     if (self.blockClickGetCode) {
         self.blockClickGetCode (self.textFieldPhoneNum.text);

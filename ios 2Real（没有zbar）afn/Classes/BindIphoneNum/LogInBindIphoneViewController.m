@@ -16,12 +16,14 @@
 @interface LogInBindIphoneViewController ()
 @property (nonatomic, strong)BuildPhoneNumView *checkPhoneView;
 @property (retain,nonatomic) NSString *token;
+@property (nonatomic, assign)BOOL   isStopShowMiaoShu;
 @end
 
 @implementation LogInBindIphoneViewController
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [[self.view viewWithTag:1001] removeFromSuperview];
+    self.isStopShowMiaoShu = NO;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -31,6 +33,7 @@
     imageView.tag = 1001;
     imageView.userInteractionEnabled =YES;
     [self.view addSubview:imageView];
+    self.isStopShowMiaoShu = YES;
     
 }
 
@@ -45,7 +48,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    arrayUserBuindNumber = [[NSMutableArray alloc] init];
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:[NSString returnBuindingIphoneNumber]]) {
+        arrayUserBuindNumber = (NSMutableArray *)[NSArray arrayWithContentsOfFile:[NSString returnBuindingIphoneNumber]];
+    }else{
+        arrayUserBuindNumber = [NSMutableArray array];
+    }
+    
     self.view.backgroundColor = [UIColor colorWithRed:64.0/255.0 green:170.0/255.0 blue:216.0/255.0 alpha:1.0];
     
     self.checkPhoneView = [[BuildPhoneNumView alloc] initWithFrame:CGRectMake(0, 0, DeviceWidth, DeviceHeight-64)];
@@ -105,6 +114,7 @@
                              };
     AFNetConnection *connection = [[USTAFNet sharedInstance]connectionWithApiName:AFNETMETHOD_UST_BindEnd params:params];
     [connection setOnSuccess:^(id result) {
+        _self.isStopShowMiaoShu = YES;
         NSDictionary *data = result[kAFNETConnectionStandartDataKey];
         //        [LoginUtil setToken:data[@"Token"]];
         //bug #23
@@ -114,8 +124,9 @@
         [LoginUtil setnumberPhone:_numberPhone];
         [[NSUserDefaults standardUserDefaults] setValue:_numberPhone forKey:@"IphoneNumberForCode"];
         [[NSUserDefaults standardUserDefaults] setValue:data[@"IsFirstLogin"] forKey:@"isFirstLogInto"];
-         [[XSConnectPool shareInstance] getUserBindPhoneNumber:_numberPhone];
+//         [[XSConnectPool shareInstance] getUserBindPhoneNumber:_numberPhone];
         [_self saveBuindingNumberWithUser:_numberPhone];
+        [[NSUserDefaults standardUserDefaults] setValue:strPhoneNum forKey:@"getPhoneNumber"];
 
         NSLog(@"%@", [LoginUtil loginUserName]);
         NSLog(@"%@", [LoginUtil loginPassword]);
@@ -126,8 +137,9 @@
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             APP_DELEGATE.rootMainViewController=[[XieshiMainViewController alloc]init];
             APP_DELEGATE.window.rootViewController = APP_DELEGATE.rootMainViewController;
-            APP_DELEGATE.rootMainViewController.userPowerString = data[@"UserPower"];
-            [[NSUserDefaults standardUserDefaults] setValue: data[@"UserPower"] forKey:@"userPowerStr"];
+//            APP_DELEGATE.rootMainViewController.userPowerString = data[@"UserPower"];
+            APP_DELEGATE.rootMainViewController.userPowerString = self.userPowerString;
+            [[NSUserDefaults standardUserDefaults] setValue: self.userPowerString forKey:@"userPowerStr"];
         });
         
         [SVProgressHUD dismiss];
@@ -154,6 +166,7 @@
 //    [[XSConnectPool shareInstance] getUserBindPhoneNumber:str];
     
     AFNetConnection *connection = [[USTAFNet sharedInstance]connectionWithApiName:AFNETMETHOD_UST_BindStart params:params];
+    dpBlockSelf;
     [connection setOnSuccess:^(id result) {
         
 //        dispatch_async(dispatch_get_global_queue(0, 0), ^{
@@ -171,13 +184,41 @@
 //            });
 //            
 //        });
+        [UIAlertView alertViewWithTitle:@"" message:@"验证码已发送" cancelButtonTitle:nil otherButtonTitles:@[@"OK"] onDismiss:^(int buttonIndex) {
+            [_self.checkPhoneView.textFieldCode becomeFirstResponder];
+        } onCancel:^{
+            
+        }];
+        
+        //获取验证码倒计时
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+           
+            for (int i= 59; i > -1; i--) {
+                if (_self.isStopShowMiaoShu) {
+                    return ;
+                }
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [_self.checkPhoneView.btnCode setTitle:[NSString stringWithFormat:@"等待%d秒",i] forState:UIControlStateNormal];
+                    _self.checkPhoneView.btnCode.userInteractionEnabled = NO;
+                });
+                
+                if (i == 0) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [_self.checkPhoneView.btnCode setTitle:@"重新获取" forState:UIControlStateNormal];
+                        _self.checkPhoneView.btnCode.userInteractionEnabled = YES;
+                    });
+                }
+                sleep(1);
+                
+            }
+        });
         
         _token = result[kAFNETConnectionStandartDataKey][@"Token"];
 //        [self getCodeNumberForCeShi:_token];
 //        [SVProgressHUD dismissWithSuccess:@"已发送"];
     }];
     [connection setOnFailed:^(NSError *error) {
-        NSString *errorDescription = [error localizedDescription];
+        NSString *errorDescription = error.localizedDescription;
         [SVProgressHUD dismissWithError:STRING_FORMAT(@"%@",errorDescription) afterDelay:2.5f];
     }];
 //    [SVProgressHUD show];

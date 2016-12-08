@@ -49,10 +49,6 @@
 //    self.xsMainController = _deckController.centerController;
     
     
-    
-
-   
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
@@ -97,7 +93,7 @@
         }
     }];
     [connection setOnFailed:^(NSError *error) {
-        NSString *errorDescription = [error localizedDescription];
+        NSString *errorDescription = [NSError getErrorInfoResponseUTF8String:error];
         [SVProgressHUD dismissWithError:STRING_FORMAT(@"%@",errorDescription) afterDelay:2.5f];
     }];
     [connection startAsynchronous];

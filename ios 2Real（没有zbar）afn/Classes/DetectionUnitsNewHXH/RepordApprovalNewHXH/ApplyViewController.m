@@ -140,6 +140,7 @@ static NSString *ApplyViewControllerCompleteCellIdentifier = @"CompleteCell";
         [self.navigationController popViewControllerAnimated:YES];
         [self refreshNoMerge];
         [self refreshtableViewFrame];
+        [self.tableView reloadData];
         
     }];
 }
@@ -234,6 +235,7 @@ static NSString *ApplyViewControllerCompleteCellIdentifier = @"CompleteCell";
 }
 
 - (NSString *)  simpleTableViewCellNibName:(UITableView *)tableView{
+    
     return @"ApplyTableViewCell";
 }
 
