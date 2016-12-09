@@ -57,7 +57,7 @@
     self = [super initWithMapper:@[
                                    formTableViewFormMapper(@[
                                                              [LSFormSelectChangeFrameSearchCell mapperWithCellName:@"kindCell" keyName:@"kind" label:@"批准类别" andMapper:@{} andHeight:@"57"],
-                                                             [LSFormSelectChangeFrameSearchCell mapperWithCellName:@"itemCell" keyName:@"item" label:@"批准项目" andMapper:@{} andHeight:@"57"],[LSFormSelectChangeFrameSearchCell mapperWithCellName:@"isCompleteCell" keyName:@"isComplete" label:@"查询已批准纪录" andMapper:@{@"0":@"否",@"1":@"是"} andHeight:@"57"],
+                                                             [LSFormSelectChangeFrameSearchCell mapperWithCellName:@"itemCell" keyName:@"item" label:@"批准项目" andMapper:@{} andHeight:@"57"],[LSFormSelectChangeFrameSearchCell mapperWithCellName:@"isCompleteCell" keyName:@"isComplete" label:@"查询已批准记录" andMapper:@{@"0":@"否",@"1":@"是"} andHeight:@"57"],
 //                                                             [LSFormSelectCell mapperWithCellName:@"kindCell" keyName:@"kind" label:@"类别" andMapper:@{}],
 //                                                             [LSFormSelectCell mapperWithCellName:@"itemCell" keyName:@"item" label:@"项目" andMapper:@{}],
 //                                                             [LSFormSwitchCell mapperWithCellName:@"isCompleteCell" keyName:@"isComplete" andLabel:@"已批准/审核记录"]
