@@ -11,4 +11,7 @@
 @interface UploadImageDetailViewController : UIViewController
 @property(nonatomic,assign) NSInteger imageCount;
 @property(nonatomic,retain) NSString *taskId;
+
+
 @end
+
