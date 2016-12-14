@@ -86,8 +86,8 @@
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
-    _kindCell.labelContent.text = @"";
-    _itemCell.labelContent.text = @"";
+//    _kindCell.labelContent.text = @"";
+//    _itemCell.labelContent.text = @"";
     [super viewWillDisappear:animated];
 }
 

@@ -87,7 +87,7 @@
                               //2           3           4
                               @"样品查询",@"统计详情",@"不合格信息查询",
                               //5           6
-                              @"工程查询",@"现场图片上传",@"设置",@"重新登录"
+                              @"工程查询",@"现场图片上传",@"系统设置",@"重新登录"
                               ];
     self.imageArray = @[
                         [UIImage imageNamed:@"cebianlanshujushenhe"],[UIImage imageNamed:@"cebianlanbaogaobiaozhun"],

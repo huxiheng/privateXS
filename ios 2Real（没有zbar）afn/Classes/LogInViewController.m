@@ -76,11 +76,11 @@
     self.labelTitle.textColor = [UIColor whiteColor];
     [self.imageViewBG addSubview:self.labelTitle];
     
-    UILabel *labelVersion = [[UILabel alloc] initWithFrame:CGRectMake(0, kscaleDeviceHeight(263), DeviceWidth, 10)];
-    labelVersion.text=[NSString stringWithFormat:@"V%@",kVersion];
+    UILabel *labelVersion = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, DeviceWidth, 16)];
+    labelVersion.text=[NSString stringWithFormat:@"版本号：%@",kVersion];
     labelVersion.textColor = [UIColor whiteColor];
-    labelVersion.font = themeFont10;
-    labelVersion.textAlignment = NSTextAlignmentCenter;
+    labelVersion.font = themeFont16;
+    labelVersion.textAlignment = NSTextAlignmentRight;
     [self.imageViewBG addSubview:labelVersion];
     
     self.buttonAppStore = [UIButton buttonWithType:UIButtonTypeCustom];

@@ -27,12 +27,18 @@
     self.viewBG.layer.masksToBounds = YES;
     [self addSubview:self.viewBG];
     
-    self.labelTitle = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, kscaleDeviceWidth(288)-30, 42)];
+    self.labelTitle = [[UILabel alloc] initWithFrame:CGRectMake(15+11, 0, kscaleDeviceWidth(288)-30-11, 42)];
     self.labelTitle.textColor = [UIColor colorWithHexString:kc00_333333];
     self.labelTitle.textAlignment = NSTextAlignmentCenter;
     self.labelTitle.font = themeFont14;
     self.labelTitle.text = @"解除帐号绑定";
     [self.viewBG addSubview:self.labelTitle];
+    
+    UIButton *btnCancel = [[UIButton alloc] initWithFrame:CGRectMake(kscaleDeviceWidth(288)-15-11, 15, 11, 11)];
+//    [btnCancel setImage:[UIImage imageNamed:@"setting-shezhi-x"] forState:UIControlStateNormal];
+    [btnCancel setBackgroundImage:[UIImage imageNamed:@"setting-shezhi-x"] forState:UIControlStateNormal];
+    [btnCancel addTarget:self action:@selector(btnClickTitleCancle) forControlEvents:UIControlEventTouchUpInside];
+    [self.viewBG addSubview:btnCancel];
     
     self.lineViewTitle = [[UIView alloc] initWithFrame:CGRectMake(0, 42, kscaleDeviceWidth(288), 0.5)];
     self.lineViewTitle.backgroundColor = kcolorLine;
@@ -83,6 +89,11 @@
     XSActionSheet *actionSheet = (XSActionSheet *)[self superview];
     [actionSheet hiddenSelf];
     self.blockClickBtn(btn.tag);
+}
+
+-(void)btnClickTitleCancle{
+    XSActionSheet *actionSheet = (XSActionSheet *)[self superview];
+    [actionSheet hiddenSelf];
 }
 
 @end

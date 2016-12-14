@@ -151,7 +151,7 @@
 - (void)uploadImageRequest:(UIImage *)image index:(NSInteger) index{
 
     
-    NSData *dataObj = UIImageJPEGRepresentation(image, 0.6); 
+    NSData *dataObj = UIImageJPEGRepresentation(image, 0.6);
     //    NSData *mydata=UIImageJPEGRepresentation(image , 0.4);
     
     NSString *string =[dataObj base64Encoding];

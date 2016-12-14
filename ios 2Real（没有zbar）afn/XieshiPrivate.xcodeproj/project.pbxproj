@@ -594,6 +594,9 @@
 		D25470071DAE09D500C7DCB9 /* PopoverAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = D25470031DAE09D500C7DCB9 /* PopoverAnimator.m */; };
 		D254700A1DAE1EA800C7DCB9 /* PopoveViewControllerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D25470091DAE1EA800C7DCB9 /* PopoveViewControllerCell.m */; };
 		D25470531DAE963000C7DCB9 /* CllocationUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D25470521DAE963000C7DCB9 /* CllocationUserVC.m */; };
+		D2CDD32F1E0140430086CBB2 /* setting-shezhi-x.png in Resources */ = {isa = PBXBuildFile; fileRef = D2CDD32C1E0140430086CBB2 /* setting-shezhi-x.png */; };
+		D2CDD3301E0140430086CBB2 /* setting-shezhi-x@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D2CDD32D1E0140430086CBB2 /* setting-shezhi-x@2x.png */; };
+		D2CDD3311E0140430086CBB2 /* setting-shezhi-x@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D2CDD32E1E0140430086CBB2 /* setting-shezhi-x@3x.png */; };
 		D2D5205F1D6D852500FE5F18 /* xsnaintuichu.png in Resources */ = {isa = PBXBuildFile; fileRef = D2D5205C1D6D852500FE5F18 /* xsnaintuichu.png */; };
 		D2D520601D6D852500FE5F18 /* xsnaintuichu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D2D5205D1D6D852500FE5F18 /* xsnaintuichu@2x.png */; };
 		D2D520611D6D852500FE5F18 /* xsnaintuichu@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D2D5205E1D6D852500FE5F18 /* xsnaintuichu@3x.png */; };
@@ -1565,6 +1568,9 @@
 		D25470091DAE1EA800C7DCB9 /* PopoveViewControllerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoveViewControllerCell.m; sourceTree = "<group>"; };
 		D25470511DAE963000C7DCB9 /* CllocationUserVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CllocationUserVC.h; sourceTree = "<group>"; };
 		D25470521DAE963000C7DCB9 /* CllocationUserVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CllocationUserVC.m; sourceTree = "<group>"; };
+		D2CDD32C1E0140430086CBB2 /* setting-shezhi-x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "setting-shezhi-x.png"; sourceTree = "<group>"; };
+		D2CDD32D1E0140430086CBB2 /* setting-shezhi-x@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "setting-shezhi-x@2x.png"; sourceTree = "<group>"; };
+		D2CDD32E1E0140430086CBB2 /* setting-shezhi-x@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "setting-shezhi-x@3x.png"; sourceTree = "<group>"; };
 		D2D5205C1D6D852500FE5F18 /* xsnaintuichu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xsnaintuichu.png; sourceTree = "<group>"; };
 		D2D5205D1D6D852500FE5F18 /* xsnaintuichu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xsnaintuichu@2x.png"; sourceTree = "<group>"; };
 		D2D5205E1D6D852500FE5F18 /* xsnaintuichu@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xsnaintuichu@3x.png"; sourceTree = "<group>"; };
@@ -2108,6 +2114,7 @@
 		8B45ED881793A8050081B32A /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				D2CDD32B1E0140260086CBB2 /* systermSetting */,
 				D202330B1D9268D100681339 /* todaySatificateImagesXH */,
 				8B81591D1AFFAD30002FC0CD /* btn_left_exit_n@2x.png */,
 				8B81591E1AFFAD30002FC0CD /* btn_left_setting_n@2x.png */,
@@ -3377,6 +3384,16 @@
 			path = CLlocationUser;
 			sourceTree = "<group>";
 		};
+		D2CDD32B1E0140260086CBB2 /* systermSetting */ = {
+			isa = PBXGroup;
+			children = (
+				D2CDD32C1E0140430086CBB2 /* setting-shezhi-x.png */,
+				D2CDD32D1E0140430086CBB2 /* setting-shezhi-x@2x.png */,
+				D2CDD32E1E0140430086CBB2 /* setting-shezhi-x@3x.png */,
+			);
+			path = systermSetting;
+			sourceTree = "<group>";
+		};
 		D2F71E391D51D5590038A578 /* verrifyReportApprovalNew */ = {
 			isa = PBXGroup;
 			children = (
@@ -3817,6 +3834,7 @@
 				D204CCEC1D4204C60099470B /* icon_upload_upload@2x.png in Resources */,
 				D2FBBCC71D3FD27100611C5F /* refreshingGreen@3x.png in Resources */,
 				D200EA481D583032002B856E /* ReportTableViewCell.xib in Resources */,
+				D2CDD32F1E0140430086CBB2 /* setting-shezhi-x.png in Resources */,
 				D2020AC61D93772700C997CD /* todaySatificateshuxian@3x.png in Resources */,
 				D204CCA01D42037B0099470B /* xsmainxingzhi@2x.png in Resources */,
 				D20FBC941D52C97700135885 /* applyReportImageNewyangpin@3x.png in Resources */,
@@ -3845,6 +3863,7 @@
 				8BE305251A1B84710028F511 /* bg_paper@2x.png in Resources */,
 				D200EA181D582D77002B856E /* UnqualifiedSearchViewController.xib in Resources */,
 				D204CC9F1D42037B0099470B /* xsmainxingzhi.png in Resources */,
+				D2CDD3301E0140430086CBB2 /* setting-shezhi-x@2x.png in Resources */,
 				8BE305291A1B84710028F511 /* btn_cofirm_p@2x.png in Resources */,
 				D2F71E3D1D51D5920038A578 /* verifyReportNewweixuanzhong.png in Resources */,
 				D22083211D7D65A300353233 /* logo@3x.png in Resources */,
@@ -3925,6 +3944,7 @@
 				D20233141D9268DC00681339 /* todaySatificateXHrili@3x.png in Resources */,
 				D2FD9C2D1D4FA0A6001E68B6 /* ProjectSelectedditu@3x.png in Resources */,
 				D2FBBCC61D3FD27100611C5F /* refreshingGreen@2x.png in Resources */,
+				D2CDD3311E0140430086CBB2 /* setting-shezhi-x@3x.png in Resources */,
 				D204D7121D488D2E00F1E092 /* unqualifyDefaultcailiaojiance1.png in Resources */,
 				8BE305201A1B84710028F511 /* bg_banner@2x.png in Resources */,
 				D20F3DFF1D3C82C600636ADE /* huoquyanzhengma1@2x.png in Resources */,
@@ -4535,7 +4555,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 7KY9D5L76C;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4572,7 +4592,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 7KY9D5L76C;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
